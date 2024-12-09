@@ -3,5 +3,6 @@
 
 void initDisplay();
 void showText(const char* message);
-//void showMoist_Value(int m_Value)
+void showMoist_Value(int m_Value);
+void drawGrid();
 #endif
