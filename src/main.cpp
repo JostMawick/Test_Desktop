@@ -10,7 +10,7 @@ void setup() {
 
 void loop() {
     int moisture = readMoisture(); // Bodenfeuchtigkeit in Prozent auslesen
-    //showMoist_Value(moisture);
-
+     //showMoist_Value(moisture);
+delay(500);
     delay(1000); 
 }
