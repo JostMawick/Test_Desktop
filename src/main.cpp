@@ -13,4 +13,6 @@ void loop() {
      //showMoist_Value(moisture);
 delay(500);
     delay(1000); 
+
+    delay(600);
 }
