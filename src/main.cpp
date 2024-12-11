@@ -1,20 +1,18 @@
 #include <Arduino.h>
-#include "display.h"
-#include "moisture.h"
 #include "wifi_connection.h"
 #include "web_server.h"
+#include "blynk_connection.h"
 
 void setup() {
     Serial.begin(115200);
-    initDisplay();
     connectToWiFi();
+    initBlynk();
     startWebServer();
 }
 
 void loop() {
-    showText("Feuchtigkeit:   %");
-    int moisture = readMoisture(); // Bodenfeuchtigkeit in Prozent auslesen
-    showMoist_Value(moisture); // Bodenfeuchte am Display anzeigen
-    updateMoistureValue(moisture); // Feuchtigkeitswert im Webserver aktualisieren
-    delay(100);
+    int moisture = analogRead(34); // Beispiel für das Auslesen des Feuchtigkeitswerts
+    updateMoistureValue(moisture);
+    sendMoistureToBlynk(moisture); // Feuchtigkeitswert an Blynk senden
+    delay(1000);
 }
